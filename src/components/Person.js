@@ -6,8 +6,8 @@ class Person extends Component
     {
         return (
             <li className="person">
-                <h4 className="name">{this.props.name}</h4>
-                <p className="email">{this.props.email}</p>
+                <h4>{this.props.name}</h4>
+                <p>{this.props.email}</p>
             </li>
         );
     }

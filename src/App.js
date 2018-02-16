@@ -10,10 +10,13 @@ class App extends Component
         super(props);
 
         this.state = {
+            sort: 'index',
+            genders: ['male', 'female'],
             people: []
         }
 
         this.handleSort = this.handleSort.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
 
     componentDidMount()
@@ -28,31 +31,52 @@ class App extends Component
             });
     }
 
-    handleSort(type)
+    handleSort(method)
     {
-        // sort alphabetically
-        if (type === 'alpha') {
-            this.setState({
-                people: this.state.people.sort(function(a, b) {
-                    if (a.fullname < b.fullname) return -1;
-                    if (a.fullname > b.fullname) return 1;
-                    return 0;
-                })
-            });
+        var people = this.state.people;
 
-        // sort by index
-        } else if (type === 'index') {
-            this.setState({
-                people: this.state.people.sort((a, b) => a.index - b.index)
+        if (method === 'alpha') {
+            people.sort(function(a, b) {
+                if (a.fullname < b.fullname) return -1;
+                if (a.fullname > b.fullname) return 1;
+                return 0;
             });
+        } else if (method === 'index') {
+            people.sort((a, b) => a.index - b.index);
         }
+
+        this.setState({
+            sort: method,
+            people: people
+        });
+    }
+
+    handleFilter(filter)
+    {
+        //var people = this.state.people;
+        var genders = this.state.genders;
+        var index = genders.indexOf(filter);
+
+        genders.push(filter);
+
+        if (index > -1) {
+            genders = genders.filter(function(i) {
+                return i !== filter
+            });
+        } else {
+            genders.push(filter);
+        }
+
+        this.setState({
+            genders: genders
+        });
     }
 
     render()
     {
         return (
             <div className="app">
-                <Filters onSort={this.handleSort} />
+                <Filters activeSort={this.state.sort} activeGenders={this.state.genders} onSort={this.handleSort} onFilter={this.handleFilter} />
                 <PeopleList items={this.state.people} />
             </div>
         );

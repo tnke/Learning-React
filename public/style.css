@@ -27,6 +27,14 @@ body {
     border-bottom: solid 1px #eeeef1;
 }
 
+.filters div {
+    margin-bottom: 15px;
+}
+
+.filters div:last-child {
+    margin-bottom: 0;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -38,6 +46,14 @@ button {
     border-radius: 3px;
     margin: 0 3px;
     cursor: pointer;
+}
+
+button.is-active {
+    background-color: #ccc;
+}
+
+button:focus {
+    outline: none;
 }
 
 .people-list {
@@ -56,12 +72,15 @@ button {
     box-shadow: 0 3px 14px 0 rgba(0,0,0,0.15);
 }
 
-.name {
+h4 {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.email {
+p {
     font-size: 11px;
     margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

@@ -4,8 +4,14 @@ class Button extends Component
 {
     render()
     {
+        var classes;
+
+        if (this.props.active) {
+            classes = 'is-active ';
+        }
+
         return (
-            <button value={this.props.value} onClick={this.props.clickHandler}>{this.props.text}</button>
+            <button className={classes} value={this.props.value} onClick={this.props.onClick}>{this.props.text}</button>
         );
     }
 }

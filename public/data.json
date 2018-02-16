@@ -5,10 +5,9 @@
             "index_start_at": 56,
             "integer": 30,
             "float": 19.3042,
-            "name": "Donna",
-            "surname": "Jones",
             "fullname": "William McNeill",
-            "email": "julia@connolly.bm",
+            "gender": "male",
+            "email": "william@mcneill.bm",
             "bool": false
         },
         {
@@ -16,10 +15,9 @@
             "index_start_at": 57,
             "integer": 5,
             "float": 10.1671,
-            "name": "Heather",
-            "surname": "Teague",
             "fullname": "Renee Simmons",
-            "email": "lawrence@byrd.vg",
+            "gender": "female",
+            "email": "renee.simmons@byrd.vg",
             "bool": true
         },
         {
@@ -27,10 +25,9 @@
             "index_start_at": 58,
             "integer": 38,
             "float": 17.9245,
-            "name": "Wesley",
-            "surname": "Connolly",
             "fullname": "Rhonda Creech",
-            "email": "claire@pugh.gh",
+            "gender": "female",
+            "email": "rhonda.creech@pugh.gh",
             "bool": true
         },
         {
@@ -38,10 +35,9 @@
             "index_start_at": 59,
             "integer": 1,
             "float": 15.7198,
-            "name": "Dennis",
-            "surname": "Ball",
             "fullname": "Chris Burnett",
-            "email": "andrew@mclaughlin.gq",
+            "gender": "male",
+            "email": "chris.burnett@mclaughlin.gq",
             "bool": false
         },
         {
@@ -49,10 +45,9 @@
             "index_start_at": 60,
             "integer": 27,
             "float": 14.4352,
-            "name": "Sara",
-            "surname": "Hartman",
             "fullname": "Scott Vaughn",
-            "email": "kristine@bowden.ly",
+            "gender": "male",
+            "email": "scott.vaughn@bowden.ly",
             "bool": true
         },
         {
@@ -60,10 +55,9 @@
             "index_start_at": 61,
             "integer": 40,
             "float": 10.8434,
-            "name": "Nina",
-            "surname": "Hess",
             "fullname": "Clifford Lam",
-            "email": "jerome@berman.pg",
+            "gender": "male",
+            "email": "clifford.lam@berman.pg",
             "bool": true
         },
         {
@@ -71,10 +65,9 @@
             "index_start_at": 62,
             "integer": 15,
             "float": 18.9708,
-            "name": "Penny",
-            "surname": "Franklin",
             "fullname": "Barry Saunders",
-            "email": "paige@petersen.bj",
+            "gender": "male",
+            "email": "barry.saunders@petersen.bj",
             "bool": false
         },
         {
@@ -82,10 +75,9 @@
             "index_start_at": 63,
             "integer": 26,
             "float": 11.9909,
-            "name": "Monica",
-            "surname": "Knowles",
             "fullname": "Ralph Ballard",
-            "email": "ken@sinclair.ro",
+            "gender": "male",
+            "email": "ralph.ballard@sinclair.ro",
             "bool": false
         },
         {
@@ -93,10 +85,9 @@
             "index_start_at": 64,
             "integer": 9,
             "float": 10.6134,
-            "name": "Shirley",
-            "surname": "Stevens",
             "fullname": "Christian Klein",
-            "email": "jimmy@sumner.nz",
+            "gender": "male",
+            "email": "christian.klein@sumner.nz",
             "bool": true
         },
         {
@@ -104,10 +95,9 @@
             "index_start_at": 65,
             "integer": 18,
             "float": 11.1964,
-            "name": "Alice",
-            "surname": "McKenzie",
             "fullname": "Karl French",
-            "email": "thomas@proctor.bn",
+            "gender": "male",
+            "email": "karl.french@proctor.bn",
             "bool": true
         }
     ]
