@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    background-color: #eeeef1;
+    text-align: center;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+.app {
+    background-color: #fff;
+    padding: 40px;
+    width: 600px;
+    max-width: 100%;
+}
+
+.filters {
+    position: relative;
+    padding: 25px 15px;
+    border-bottom: solid 1px #eeeef1;
+}
+
+.filters div {
+    margin-bottom: 15px;
+}
+
+.filters div:last-child {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+button.is-active {
+    background-color: #ccc;
+}
+
+button:focus {
+    outline: none;
+}
+
+.people-list {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    padding: 25px 0;
+}
+
+.person {
+    width: calc(33% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 3px 14px 0 rgba(0,0,0,0.15);
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 11px;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
