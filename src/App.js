@@ -9,13 +9,13 @@ class App extends Component
     {
         super(props);
 
+        this.people = [];
         this.state = {
             sort: 'index',
             genders: ['male', 'female'],
-            people: []
-        }
+            filteredPeople: []
+        };
 
-        this.handleSort = this.handleSort.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
     }
 
@@ -25,50 +25,53 @@ class App extends Component
         axios.get(this.props.dataSrc)
             .then((response) =>
             {
+                this.people = response.data.people;
+
                 this.setState({
-                    people: response.data.people
+                    filteredPeople: this.people
                 });
             });
     }
 
-    handleSort(method)
+    handleFilter(type, filter)
     {
-        var people = this.state.people;
+        var people = this.people;
+        var genders = this.state.genders;
+        var filteredPeople = this.state.filteredPeople;
+        var sort = type === 'sort' ? filter : this.state.sort;
 
-        if (method === 'alpha') {
-            people.sort(function(a, b) {
+        // handle filtering
+
+        if (type === 'gender') {
+            var i = genders.indexOf(filter);
+
+            if (i > -1) {
+                genders = genders.filter(gender => gender !== filter);
+            } else {
+                genders.push(filter);
+            }
+
+            filteredPeople = people.filter(person => genders.indexOf(person.gender) > -1);
+        }
+
+        // handle sorting
+
+        if (sort === 'alpha') {
+            filteredPeople.sort(function(a, b) {
                 if (a.fullname < b.fullname) return -1;
                 if (a.fullname > b.fullname) return 1;
                 return 0;
             });
-        } else if (method === 'index') {
-            people.sort((a, b) => a.index - b.index);
+        } else if (sort === 'index') {
+            filteredPeople.sort((a, b) => a.index - b.index);
         }
 
-        this.setState({
-            sort: method,
-            people: people
-        });
-    }
-
-    handleFilter(filter)
-    {
-        //var people = this.state.people;
-        var genders = this.state.genders;
-        var index = genders.indexOf(filter);
-
-        genders.push(filter);
-
-        if (index > -1) {
-            genders = genders.filter(function(i) {
-                return i !== filter
-            });
-        } else {
-            genders.push(filter);
-        }
+        // set the state
 
         this.setState({
-            genders: genders
+            sort: sort,
+            genders: genders,
+            filteredPeople: filteredPeople
         });
     }
 
@@ -76,8 +79,8 @@ class App extends Component
     {
         return (
             <div className="app">
-                <Filters activeSort={this.state.sort} activeGenders={this.state.genders} onSort={this.handleSort} onFilter={this.handleFilter} />
-                <PeopleList items={this.state.people} />
+                <Filters activeSort={this.state.sort} activeGenders={this.state.genders} onChange={this.handleFilter} />
+                <PeopleList items={this.state.filteredPeople} />
             </div>
         );
     }

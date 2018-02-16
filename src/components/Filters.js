@@ -10,20 +10,20 @@ class Filters extends Component
         this.genders = ['male', 'female'];
 
         this.sortHandler = this.sortHandler.bind(this);
-        this.filterHandler = this.filterHandler.bind(this);
+        this.genderHandler = this.genderHandler.bind(this);
     }
 
     sortHandler(e)
     {
-        if (typeof this.props.onSort === 'function') {
-            this.props.onSort(e.target.value);
+        if (typeof this.props.onChange === 'function') {
+            this.props.onChange("sort", e.target.value);
         }
     }
 
-    filterHandler(e)
+    genderHandler(e)
     {
-        if (typeof this.props.onFilter === 'function') {
-            this.props.onFilter(e.target.value);
+        if (typeof this.props.onChange === 'function') {
+            this.props.onChange("gender", e.target.value);
         }
     }
 
@@ -50,7 +50,7 @@ class Filters extends Component
         this.genders.forEach((gender, index) => {
             var isActive = this.props.activeGenders.indexOf(gender) > -1;
 
-            genders.push(<Button key={index} text={this.toTitleCase(gender)} value={gender} active={isActive} onClick={this.filterHandler} />)
+            genders.push(<Button key={index} text={this.toTitleCase(gender)} value={gender} active={isActive} onClick={this.genderHandler} />)
         })
 
         return (
