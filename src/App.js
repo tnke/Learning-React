@@ -13,7 +13,7 @@ class App extends Component
             people: []
         }
 
-        this.handleFilter = this.handleFilter.bind(this);
+        this.handleSort = this.handleSort.bind(this);
     }
 
     componentDidMount()
@@ -28,22 +28,31 @@ class App extends Component
             });
     }
 
-    handleFilter()
+    handleSort(type)
     {
-        this.setState({
-            people: this.state.people.sort(function(a, b) {
-                if (a.fullname < b.fullname) return -1;
-                if (a.fullname > b.fullname) return 1;
-                return 0;
-            })
-        });
+        // sort alphabetically
+        if (type === 'alpha') {
+            this.setState({
+                people: this.state.people.sort(function(a, b) {
+                    if (a.fullname < b.fullname) return -1;
+                    if (a.fullname > b.fullname) return 1;
+                    return 0;
+                })
+            });
+
+        // sort by index
+        } else if (type === 'index') {
+            this.setState({
+                people: this.state.people.sort((a, b) => a.index - b.index)
+            });
+        }
     }
 
     render()
     {
         return (
             <div className="app">
-                <Filters handler={this.handleFilter} />
+                <Filters onSort={this.handleSort} />
                 <PeopleList items={this.state.people} />
             </div>
         );
