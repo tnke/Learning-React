@@ -35,15 +35,14 @@ class App extends Component
 
     handleFilter(type, filter)
     {
-        var people = this.people;
-        var genders = this.state.genders;
-        var filteredPeople = this.state.filteredPeople;
-        var sort = type === 'sort' ? filter : this.state.sort;
+        const sort = type === 'sort' ? filter : this.state.sort;
+        let genders = [...this.state.genders];
+        let filteredPeople = [...this.state.filteredPeople];
 
         // handle filtering
 
         if (type === 'gender') {
-            var i = genders.indexOf(filter);
+            let i = genders.indexOf(filter);
 
             if (i > -1) {
                 genders = genders.filter(gender => gender !== filter);
@@ -51,13 +50,13 @@ class App extends Component
                 genders.push(filter);
             }
 
-            filteredPeople = people.filter(person => genders.indexOf(person.gender) > -1);
+            filteredPeople = this.people.filter(person => genders.indexOf(person.gender) > -1);
         }
 
         // handle sorting
 
         if (sort === 'alpha') {
-            filteredPeople.sort(function(a, b) {
+            filteredPeople.sort((a, b) => {
                 if (a.fullname < b.fullname) return -1;
                 if (a.fullname > b.fullname) return 1;
                 return 0;

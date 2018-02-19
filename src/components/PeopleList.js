@@ -5,7 +5,7 @@ class PeopleList extends Component
 {
     render()
     {
-        var items = [];
+        const items = [];
 
         this.props.items.forEach((person) => {
             items.push(<Person key={person.index} name={person.fullname} email={person.email} />);

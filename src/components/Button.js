@@ -4,7 +4,7 @@ class Button extends Component
 {
     render()
     {
-        var classes;
+        let classes;
 
         if (this.props.active) {
             classes = 'is-active ';

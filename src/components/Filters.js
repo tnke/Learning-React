@@ -35,8 +35,8 @@ class Filters extends Component
     render()
     {
         // set the active sorting class
-        var alphaActive = false;
-        var indexActive = false;
+        let alphaActive = false;
+        let indexActive = false;
 
         if (this.props.activeSort === 'alpha') {
             alphaActive = true;
@@ -48,7 +48,7 @@ class Filters extends Component
         var genders = [];
 
         this.genders.forEach((gender, index) => {
-            var isActive = this.props.activeGenders.indexOf(gender) > -1;
+            const isActive = this.props.activeGenders.indexOf(gender) > -1;
 
             genders.push(<Button key={index} text={this.toTitleCase(gender)} value={gender} active={isActive} onClick={this.genderHandler} />)
         })
